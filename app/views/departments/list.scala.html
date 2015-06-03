@@ -1,0 +1,24 @@
+@(departments:List[Department])
+@main("Departments"){
+    <h2>All Departments</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Deptno</th>
+                <th>Dname</th>
+                <th>Loc</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(dept <- departments ){
+                <tr>
+                    <td><a href="@routes.Departments.details(dept.deptno)"> @dept.deptno</a></td>
+                    <td>@dept.dname</td>
+                    <td>@dept.loc</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <a href="@routes.Departments.newDepartment()">Add Department</a>
+}

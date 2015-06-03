@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                   controllers.Application.index()
+GET         /departments/                       controllers.Departments.list()
+GET         /departments/new                    controllers.Departments.newDepartment()
+GET         /departments/details/:deptno        controllers.Departments.details(deptno:Int)
+POST        /departments                        controllers.Departments.save()
+POST        /departments/add                    controllers.Departments.add()
+GET         /employees/                         controllers.Employees.list()
+GET         /employees/new                      controllers.Employees.newEmployee()
+GET         /employees/details/:empno           controllers.Employees.details(empno:Int)
+POST        /employees                          controllers.Employees.save()
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                       controllers.Assets.at(path="/public", file)

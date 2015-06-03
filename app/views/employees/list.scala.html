@@ -1,0 +1,24 @@
+@(employees:List[Employee])
+@main("Employees"){
+    <h2>All Employees</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Empno</th>
+                <th>name</th>
+                <th>Deptno</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(emp <- employees ){
+            <tr>
+                <td><a href="@routes.Employees.details(emp.empno)"> @emp.empno</a></td>
+                <td>@emp.name</td>
+                <td>@emp.department.deptno</td>
+            </tr>
+        }
+        </tbody>
+
+    </table>
+    <a href="@routes.Employees.newEmployee()">Add Employee</a>
+}

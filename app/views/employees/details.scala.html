@@ -1,0 +1,21 @@
+@(employeeForm:Form[Employee])
+@import helper._
+@import helper.twitterBootstrap._
+@main("Employee Form"){
+    <h1>Employee Form</h1>
+    @helper.form(action=routes.Employees.save()){
+        <fieldset>
+            <legend>Employee(@employeeForm("name").valueOr("new"))</legend>
+            @helper.inputText(employeeForm("empno"),'_label ->"Empno")
+            @helper.inputText(employeeForm("name"),'_label ->"name")
+            @select(
+                employeeForm("department.id"),
+                options(Department.options),
+                '_label -> "Department", '_default -> "-- Choose a department --",
+                '_showConstraints -> false
+            )
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="Save">
+        <a href="@routes.Employees.list()" class="btn">Cancel</a>
+    }
+}
